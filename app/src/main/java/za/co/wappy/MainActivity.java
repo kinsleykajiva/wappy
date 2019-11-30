@@ -1,5 +1,6 @@
 package za.co.wappy;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,11 +19,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 
+import za.co.wappy.homefragments.FragmentHomePrem;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private   String option;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,22 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        option = getIntent().getExtras().getString("Option","homePremium");
+        onshowFragemtn();
+    }
+
+    private void onshowFragemtn() {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        if(option.equals("homePremium")){
+
+            FragmentHomePrem fragobj =  new FragmentHomePrem();
+            transaction.replace(R.id.frame, fragobj).commit();
+        }else{
+            FragmentHomePrem fragobj =  new FragmentHomePrem();
+            transaction.replace(R.id.frame, fragobj).commit();
+        }
     }
 
     @Override
@@ -78,19 +100,26 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.nav_prof) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            startActivity(new Intent(this,UserProfile.class));
         }
+
+        if (id == R.id.nav_home_prem) {
+            // Handle the camera action
+            startActivity(new Intent(this,MainActivity.class));
+            finish();
+        }
+
+
+
+        if (id == R.id.nav_login) {
+            // Handle the camera action
+            startActivity(new Intent(this,Login.class));
+        }
+
+
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
