@@ -4,35 +4,49 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_prof"
+
+            android:title="Profile" />
+
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_commm"
+
+            android:title="Community Recommendations" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_menu_camera"
+
+            android:title="Access Water Points" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_home_prem"
+
+            android:title="Home Premium" />
+        <item
+            android:id="@+id/nav_notif"
+
+            android:title="Notifications" />
+
+
+
+
     </group>
 
     <item android:title="Communicate">
         <menu>
-            <item
+
+        <item
+                android:id="@+id/nav_signup"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Signup for use" />
+        <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
+                android:title="Login" />
+            </menu>
     </item>
 
 </menu>

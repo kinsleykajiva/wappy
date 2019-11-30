@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/WelcomeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/readItTogetherTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/WelcomeTextView"
+        android:layout_marginTop="10dp"
+        android:text="read_it_together"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/readItTogetherTextView"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/colorAccent"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            app:hintTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_username"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:hint="Username"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="#FFF"
+                android:textColorHint="#e4e4e4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/colorAccent"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            app:hintTextColor="@color/white"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword|textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="#FFF"
+                android:textColorHint="#FFF" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+
+
+            <TextView
+                android:id="@+id/forgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:text="Forgot Password ?"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:alpha="0.8"
+            android:text="Login"
+            android:textAllCaps="false"
+            app:iconTint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            app:strokeColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/skipTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>
