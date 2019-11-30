@@ -1,125 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="15dp"
+
     android:layout_height="match_parent"
+    android:layout_margin="15dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".UserProfile"
     tools:showIn="@layout/activity_user_profile">
-    <de.hdodenhof.circleimageview.CircleImageView
-
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@drawable/user"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FF000000"/>
 
     <LinearLayout
-        android:gravity="center"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:text="Brandon Moore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-         <TextView
-
-            android:textSize="8sp"
-             android:textColor="@color/grey"
-             android:text="Capricon Minispality"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-         <TextView
-
-            android:textSize="8sp"
-             android:textColor="@color/grey"
-             android:text="142 Hillary Bender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/user"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:textSize="6dp"
-                android:text="Device"
-                android:layout_weight=".5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:text="120L/W  Avg Cons."
-                android:textSize="6dp"
-                android:layout_weight=".5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brandon Moore"
+                android:textColor="@color/black"
+                android:textSize="19sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capricon Minispality"
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="142 Hillary Bender"
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="26dp"
+                android:paddingEnd="16dp">
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="0 Device"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="120L/W  Avg Cons."
+                    android:textSize="12dp" />
+
+
+            </LinearLayout>
+            <TextView
+android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/chart1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/white" />
 
+        <SeekBar
+            android:id="@+id/seekBar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/tvYMax"
+            android:max="200"
+            android:paddingBottom="12dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/seekBar2"
+            android:layout_margin="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="35dp"
+            android:layout_toLeftOf="@+id/tvXMax"
+            android:max="500"
+            android:paddingBottom="12dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvXMax"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/seekBar1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="right"
+            android:text="dash"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="gone" />
 
 
     </LinearLayout>
-
-    <com.github.mikephil.charting.charts.HorizontalBarChart
-        android:id="@+id/chart1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        />
-    <SeekBar
-        android:id="@+id/seekBar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="8dp"
-        android:layout_toLeftOf="@+id/tvYMax"
-        android:layout_marginRight="5dp"
-        android:max="200"
-        android:paddingBottom="12dp" />
-
-    <SeekBar
-        android:id="@+id/seekBar1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/seekBar2"
-        android:layout_margin="8dp"
-        android:layout_marginBottom="35dp"
-        android:layout_toLeftOf="@+id/tvXMax"
-        android:layout_marginRight="5dp"
-        android:visibility="gone"
-        android:max="500"
-        android:paddingBottom="12dp" />
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/tvXMax"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/seekBar1"
-        android:layout_alignParentRight="true"
-        android:text="dash"
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="10dp"
-        android:gravity="right"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-
-</LinearLayout>
+</ScrollView>

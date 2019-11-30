@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 
@@ -39,6 +40,9 @@ public class UserProfile extends AppCompatActivity implements SeekBar.OnSeekBarC
         setContentView(R.layout.activity_user_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("User Profile");
         chart = findViewById(R.id.chart1);
 
         seekBarX = findViewById(R.id.seekBar1);
@@ -138,6 +142,24 @@ public class UserProfile extends AppCompatActivity implements SeekBar.OnSeekBarC
         }
 
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        int id = item.getItemId();
+
+        switch (id) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
     @Override

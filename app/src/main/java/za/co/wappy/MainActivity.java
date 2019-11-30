@@ -28,7 +28,7 @@ import za.co.wappy.homefragments.FragmentHomePrem;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private   String option;
+    private   String option = "homePremium";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,15 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        option = getIntent().getExtras().getString("Option","homePremium");
+        /*if(getIntent().getExtras().getString("Option") != null) {
+            option = getIntent().getExtras().getString("Option", "homePremium");
+        }*/
         onshowFragemtn();
     }
 
     private void onshowFragemtn() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-
         if(option.equals("homePremium")){
 
             FragmentHomePrem fragobj =  new FragmentHomePrem();

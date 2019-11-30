@@ -3,18 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="16dp"
     android:layout_height="match_parent"
     tools:context=".Login">
 
     <TextView
+        android:layout_marginTop="160dp"
+        android:gravity="center"
         android:id="@+id/WelcomeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome"
+        android:text="Welcome To Wappy"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/readItTogetherTextView"
@@ -22,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/WelcomeTextView"
         android:layout_marginTop="10dp"
-        android:text="read_it_together"
+        android:text=""
         android:textColor="@color/colorAccent"
         android:textSize="15sp"
         android:visibility="invisible" />
@@ -41,10 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textColorHint="@color/white"
+
             app:boxBackgroundColor="@color/colorAccent"
             app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
-            app:hintTextColor="@color/white">
+           >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_username"
@@ -56,7 +59,7 @@
                 android:imeOptions="actionNext"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:textColor="#FFF"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#e4e4e4" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,10 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textColorHint="@color/white"
+
             app:boxBackgroundColor="@color/colorAccent"
             app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
-            app:hintTextColor="@color/white"
+
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -97,43 +100,28 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center_vertical"
                 android:text="Forgot Password ?"
-                android:textColor="@color/white"
+                android:textColor="@color/grey"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
         </FrameLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/loginButton"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:alpha="0.8"
             android:text="Login"
             android:textAllCaps="false"
             app:iconTint="#FFFFFF"
-            android:textColor="#FFFFFF"
-            app:strokeColor="#FFFFFF"
+            android:textColor="@color/white"
+           android:background="@color/colorPrimary"
             android:textSize="16sp" />
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/skipTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:padding="12dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:visibility="invisible" />
 
 
 </RelativeLayout>
