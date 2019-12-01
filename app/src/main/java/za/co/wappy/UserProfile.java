@@ -1,5 +1,10 @@
 package za.co.wappy;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.RectF;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -22,13 +27,16 @@ import com.github.mikephil.charting.utils.MPPointF;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserProfile extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener,
         OnChartValueSelectedListener {
@@ -103,6 +111,8 @@ public class UserProfile extends AppCompatActivity implements SeekBar.OnSeekBarC
         l.setDrawInside(false);
         l.setFormSize(8f);
         l.setXEntrySpace(4f);
+
+
     }
 
         private void setData(int count, float range) {
@@ -155,21 +165,23 @@ public class UserProfile extends AppCompatActivity implements SeekBar.OnSeekBarC
         switch (id) {
             case android.R.id.home:
                 onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                break;
+            /*return true;*/
         }
+        return true;
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       // getMenuInflater().inflate(R.menu.bar, menu);
+        getMenuInflater().inflate(R.menu.bar, menu);
         return true;
     }
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+        setData(seekBarX.getProgress(), seekBarY.getProgress());
+        chart.setFitBars(true);
+        chart.invalidate();
     }
 
     @Override
@@ -181,10 +193,22 @@ public class UserProfile extends AppCompatActivity implements SeekBar.OnSeekBarC
     public void onStopTrackingTouch(SeekBar seekBar) {
 
     }
-
+    private final RectF mOnValueSelectedRectF = new RectF();
     @Override
     public void onValueSelected(Entry e, Highlight h) {
+        if (e == null)
+            return;
 
+        RectF bounds = mOnValueSelectedRectF;
+        chart.getBarBounds((BarEntry) e, bounds);
+
+        MPPointF position = chart.getPosition(e, chart.getData().getDataSetByIndex(h.getDataSetIndex())
+                .getAxisDependency());
+
+        Log.i("bounds", bounds.toString());
+        Log.i("position", position.toString());
+
+        MPPointF.recycleInstance(position);
     }
 
     @Override

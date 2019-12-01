@@ -24,6 +24,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 
+
+import za.co.wappy.homefragments.FragmentGraphsHome;
 import za.co.wappy.homefragments.FragmentHomePrem;
 
 public class MainActivity extends AppCompatActivity
@@ -44,9 +46,10 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        /*if(getIntent().getExtras().getString("Option") != null) {
-            option = getIntent().getExtras().getString("Option", "homePremium");
-        }*/
+        Intent intent = getIntent();
+        if(intent.hasExtra("Option")) {
+            option = intent.getExtras().getString("Option", "homePremium");
+        }
         onshowFragemtn();
     }
 
@@ -57,8 +60,9 @@ public class MainActivity extends AppCompatActivity
 
             FragmentHomePrem fragobj =  new FragmentHomePrem();
             transaction.replace(R.id.frame, fragobj).commit();
+            getSupportActionBar().setTitle("Water Access Point");
         }else{
-            FragmentHomePrem fragobj =  new FragmentHomePrem();
+            FragmentGraphsHome fragobj =  new FragmentGraphsHome();
             transaction.replace(R.id.frame, fragobj).commit();
         }
     }
@@ -109,6 +113,16 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home_prem) {
             // Handle the camera action
             startActivity(new Intent(this,MainActivity.class));
+            finish();
+        }
+        if (id == R.id.nav_water_points) {
+            // Handle the camera action
+            startActivity(new Intent(this,MainActivity.class).putExtra("Option" , "homegraph"));
+            finish();
+        }
+            if (id == R.id.nav_home_prem) {
+            // Handle the camera action
+            startActivity(new Intent(this,MainActivity.class).putExtra("Option" , "homePremium"));
             finish();
         }
 
